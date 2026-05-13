@@ -1,0 +1,12 @@
+{
+  "name": "lumora-scramjet-backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "deploy": "npx @scramjet/mcp deploy",
+    "deploy:watch": "npx @scramjet/mcp deploy --watch"
+  },
+  "devDependencies": {
+    "@scramjet/cli": "^1.0.0"
+  }
+}

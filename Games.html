@@ -1,0 +1,54 @@
+<html>
+  <body>
+<a href="index.html"><img src="assets/close.png" class="close-btn"></a>
+<div id="games"></div>
+<style>
+    body {
+        background-color: rgba(12, 12, 12);
+        max-height: 100%;
+        position: relative; /* Changed from z-index: -1 */
+        size: cover;
+        max-width: 100%;
+       
+    }
+    
+    .close-btn {
+        background-color: rgba(12, 12, 12, 0.8);
+        width: 50px;
+        box-shadow: 0 0 15px rgb(85, 85, 85);
+        height: 50px;
+        position: fixed;
+        z-index: 1;
+        bottom: 1rem;
+        border-radius: 50px;
+        transition: 0.3s;
+    }
+    .close-btn:hover {
+      transition: 0.3s;
+      transform: scale(1.1);
+      }
+    a {
+        position: relative; /* Ensure the link is positioned */
+        display: inline-block;
+    }
+    #games {
+      gap: 20px;
+      max-width: 500rem;
+    }
+</style>
+<script
+  src="https://cdn.jsdelivr.net/gh/luminsdk/script@latest/lumin.min.js"
+></script>
+<script>
+ Lumin.init({
+  container: '#games',    // required (unless headless)
+  theme: 'auto',          // defaults to 'auto'
+  columns: 10,             // defaults to 8
+  rows: 150,    
+    showCategories: false,
+  showRandom: false,          // defaults to 3
+   onReady: () => alert('Make Sure To Join The Discord!'),
+});
+</script>
+</body>
+</html>

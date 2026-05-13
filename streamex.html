@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crunchyroll</title>
+</head>
+<body style="margin: 0; padding: 0;">
+    <iframe 
+        class="fullscreen-iframe" 
+        src="https://streamex.sh" 
+        frameborder="0" 
+        allowfullscreen>
+    </iframe>
+    <style>
+        .fullscreen-iframe {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+        }
+        .close-btn {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 10000;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+        }
+    </style>
+    <a class="close-btn" href="index.html"><img src="assets/close.png" style="width: 32px; height: 32px;"></a>
+</body>
+</html>

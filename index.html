@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dashboard </title>
+
+    <link rel="stylesheet" href="index.css">
+    
+    <link id="dynamic-favicon" rel="icon" href="assets/default.png">
+</head>
+<body>
+         
+    <!-- Settings Panel -->
+    <div id="settingsPanel" class="setting-panel">
+        <button class="close-btn" id="closeSettings">&times;</button>
+        <h3>Settings</h3>
+
+        <div class="setting-section">
+            <div class="toggle-container">
+                <span class="setting-label">Tab Cloaking</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="cloakToggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <label class="setting-label">Disguise As:</label>
+            <select id="cloakSelect">
+                <option value="default">Subzero (Default)</option>
+                <option value="clever">Clever</option>
+                <option value="google">Google Classroom</option>
+                <option value="docs">Google Docs</option>
+                <option value="slides">Google Slides</option>
+                <option value="ixl">IXL</option>
+                 <option value="iready">I-ready</option>
+            </select>
+        </div>
+
+        <hr>
+
+        <div class="setting-section">
+            <label class="setting-label">Wallpaper</label>
+            <select id="wallpaperSelect">
+                <option value="assets/wallpaper1.jpg">default (mountains)</option>
+                <option value="assets/wallpaper2.jpg">Cherry Blossoms</option>
+                <option value="assets/wallpaper3.jpg">Blue Hexagons</option>
+                <option value="assets/wallpaper4.jpg">Anime</option>
+                <option value="assets/wallpaper5.jpg">Black Hole</option>
+                <option value="assets/wallpaper6.jpg">Anime-Girl</option>
+                <option value="assets/wallpaper7.jpeg">Rainbow Six Seige</option>
+                <option value="assets/wallpaper7.jpg">Ocean Lambo</option>
+            </select>
+        </div>
+    </div>
+
+    <h2 id="mainTitle">Subzero</h2>
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <a href="Games.html" class="app-card">
+            <img src="assets/game.png" class="app-thumbnail" alt="Game">
+            <span class="apptitle">Games</span>
+        </a>
+
+        <a href="windowpanel.html" class="app-card">
+            <img src="assets/app.png" class="app-thumbnail" alt="More Apps">
+            <span class="apptitle">More</span>
+        </a>
+        <a href="music.html" class="app-card">
+            <img src="assets/music.svg" class="app-thumbnail" alt="Music">
+            <span class="apptitle">Music</span>
+        </a>
+
+        <!-- NEW CHANGELOG BUTTON -->
+       <a href="proxy.html" class="app-card">
+            <img src="assets/proxy.png" class="app-thumbnail" alt="Proxy">
+            <span class="apptitle">Proxy</span>
+        </a>
+
+        <a href="#" class="app-card" id="setting">
+            <img src="assets/settings_300dp_E3E3E3_FILL0_wght400_GRAD0_opsz48 (1).svg" class="app-thumbnail" alt="Settings">
+            <span class="apptitle">Settings</span>
+        </a>
+
+         <a href="#" class="app-card" id="changelog-btn">
+            <img src="assets/help_300dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png" class="app-thumbnail" alt="Changelog" id="whatsnewbtn">
+            <span class="apptitle">What's New</span>
+        </a>
+
+    </div>
+    <form id="searchForm">
+      <input type="text" id="searchBar" placeholder="Type a URL or query and press Enter">
+    </form>
+
+    <script>
+        // --- DOM Elements ---
+        const settingsBtn = document.getElementById('setting');
+        const settingsPanel = document.getElementById('settingsPanel');
+        const closeSettingsBtn = document.getElementById('closeSettings');
+        const cloakToggle = document.getElementById('cloakToggle');
+        const cloakSelect = document.getElementById('cloakSelect');
+        const wallpaperSelect = document.getElementById('wallpaperSelect');
+        const dynamicFavicon = document.getElementById('dynamic-favicon');
+        const mainTitle = document.getElementById('mainTitle');
+        const body = document.body;
+        
+        // New Changelog Elements
+        const changelogBtn = document.getElementById('changelog-btn');
+        let changelogPanel = document.getElementById('subzero-change-log');
+        let changelogCloseBtn = document.getElementById('cl-close-btn');
+
+        // --- Disguise Data ---
+        const disguises = {
+            'default': { title: 'Subzero', icon: 'assets/default.png' },
+            'clever': { title: 'Clever | Portal', icon: 'assets/cropped-Favicon-512px-180x180.webp' },
+            'google': { title: 'Classroom', icon: 'assets/googleclassroom.webp' },
+            'docs': { title: 'Google Docs', icon: 'assets/google-docs.ico' },
+            'slides': { title: 'Google Slides', icon: 'assets/google-slides.ico' },
+            'ixl': { title: 'IXL | Math, Language Arts, Science, Social Studies, and Spanish', icon: 'assets/ixl.png' },
+            'iready': { title: 'I-Ready | My Path', icon: 'assets/i-ready.ico' }
+        };
+
+        // --- UI Toggle Logic ---
+        function togglePanel() {
+            if (!settingsPanel) return;
+            if (settingsPanel.style.display === 'block') {
+                settingsPanel.style.display = 'none';
+            } else {
+                settingsPanel.style.display = 'block';
+            }
+        }
+
+        if (settingsBtn) {
+            settingsBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                togglePanel();
+            });
+        }
+
+        if (closeSettingsBtn) {
+            closeSettingsBtn.addEventListener('click', togglePanel);
+        }
+
+        document.addEventListener('click', function(e) {
+            const isClickInsidePanel = settingsPanel && settingsPanel.contains(e.target);
+            const isClickOnSettingsBtn = settingsBtn && settingsBtn.contains(e.target);
+            if (settingsPanel && settingsPanel.style.display === 'block' && !isClickInsidePanel && !isClickOnSettingsBtn) {
+                settingsPanel.style.display = 'none';
+            }
+        });
+
+        // --- Cloaking Logic ---
+        function applyCloaking() {
+            const isCloaked = cloakToggle.checked;
+            const selectedDisguise = cloakSelect.value;
+
+            if (isCloaked && disguises[selectedDisguise]) {
+                document.title = disguises[selectedDisguise].title;
+                dynamicFavicon.href = disguises[selectedDisguise].icon;
+            } else {
+                document.title = 'Dashboard';
+                dynamicFavicon.href = 'assets/default.png';
+                mainTitle.style.display = 'block';
+            }
+            saveSettings();
+        }
+
+        cloakToggle.addEventListener('change', applyCloaking);
+        cloakSelect.addEventListener('change', applyCloaking);
+
+        // --- Wallpaper Logic ---
+        wallpaperSelect.addEventListener('change', function() {
+            const newBg = this.value;
+            body.style.backgroundImage = `url('${newBg}')`;
+            saveSettings();
+        });
+
+        // --- Local Storage (Save/Load) ---
+        function saveSettings() {
+            const settings = {
+                isCloaked: cloakToggle.checked,
+                disguise: cloakSelect.value,
+                wallpaper: wallpaperSelect.value
+            };
+            localStorage.setItem('subzeroSettings', JSON.stringify(settings));
+        }
+
+        function loadSettings() {
+            const saved = localStorage.getItem('subzeroSettings');
+            if (saved) {
+                const settings = JSON.parse(saved);
+                cloakToggle.checked = settings.isCloaked;
+                cloakSelect.value = settings.disguise;
+                wallpaperSelect.value = settings.wallpaper;
+                body.style.backgroundImage = `url('${settings.wallpaper}')`;
+                applyCloaking();
+            }
+        }
+
+               // --- Changelog Logic (Continued) ---
+        const storageKey = 'subzero_seen_changelog';
+
+        // Function to show the changelog
+        function showChangelog() {
+            if (!changelogPanel) return;
+            changelogPanel.style.display = 'block';
+            sessionStorage.setItem(storageKey, 'true');
+        }
+
+        function closeChangelog() {
+            if (!changelogPanel) return;
+            changelogPanel.style.display = 'none';
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            changelogPanel = document.getElementById('subzero-change-log');
+            changelogCloseBtn = document.getElementById('cl-close-btn');
+
+            loadSettings();
+            if (!sessionStorage.getItem(storageKey)) {
+                showChangelog();
+            }
+
+            if (changelogBtn) {
+                changelogBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showChangelog();
+                });
+            }
+
+            if (changelogCloseBtn) {
+                changelogCloseBtn.addEventListener('click', closeChangelog);
+            }
+
+            const searchBar = document.getElementById('searchBar');
+            const searchForm = document.getElementById('searchForm');
+
+            if (searchForm && searchBar) {
+                const navigateToProxy = function() {
+                    const inputValue = searchBar.value.trim();
+                    if (!inputValue) return;
+                    const target = normalizeSearchInput(inputValue);
+                    window.location.href = `proxy.html?target=${encodeURIComponent(target)}`;
+                };
+
+                searchForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    navigateToProxy();
+                });
+
+                searchBar.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.keyCode === 13) {
+                        event.preventDefault();
+                        navigateToProxy();
+                    }
+                });
+
+                searchBar.focus();
+            }
+        });
+
+        function isLikelyUrl(input) {
+            if (!input) return false;
+            if (/\s/.test(input)) return false;
+            const pattern = /^(?:https?:\/\/)?(?:www\.)?(?:[a-z0-9-]+\.)+[a-z]{2,}(?:[\/\?#][^\s]*)?$/i;
+            return pattern.test(input.trim());
+        }
+
+        function normalizeSearchInput(input) {
+            const value = input.trim();
+            if (isLikelyUrl(value)) {
+                return value.match(/^https?:\/\//i) ? value : `https://${value}`;
+            }
+            return `https://html.duckduckgo.com/html?q=${encodeURIComponent(value)}`;
+        }
+    </script>
+    <!-- Change Log Panel Start -->
+    <style>
+      /* Panel Styling - Dark Mode to match Subzero */
+      #subzero-change-log {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        width: 320px;
+        background: rgba(20, 20, 20, 0.95); /* Dark background */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        z-index: 9999;
+        display: none;
+        overflow: hidden;
+        animation: fadein 0.3s ease-out;
+        color: #e5e7eb;
+      }
+
+      /* Header Styling */
+      #subzero-change-log .cl-header {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 12px 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      #subzero-change-log .cl-title {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: #ffffff;
+      }
+
+      #subzero-change-log .cl-badge {
+        background: #131313; /* Blue accent */
+        color: white;
+        font-size: 10px;
+        padding: 2px 6px;
+        border-radius: 4px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      /* Content Styling */
+      #subzero-change-log .cl-body {
+        padding: 16px;
+        font-size: 14px;
+        color: #d1d5db;
+        line-height: 1.5;
+      }
+
+      #subzero-change-log ul {
+        margin: 0;
+        padding-left: 20px;
+        list-style-type: disc;
+      }
+
+      #subzero-change-log li {
+        margin-bottom: 6px;
+      }
+
+      /* Footer & Button */
+      #subzero-change-log .cl-footer {
+        padding: 12px 16px;
+        background: rgba(0, 0, 0, 0.3);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: right;
+      }
+
+      #subzero-change-log .cl-btn {
+        background: #444444;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      #subzero-change-log .cl-btn:hover {
+        background: #131313;
+      }
+
+      /* Animation */
+      @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+    </style>
+
+    <div id="subzero-change-log">
+      <div class="cl-header">
+        <h3 class="cl-title">What's New</h3>
+        <span class="cl-badge">v1.3</span>
+      </div>
+      <div class="cl-body">
+        <ul>
+          <li>Added Crunchyroll, Streamex, Roblox, Fortnite, etc..</li>
+          <li>Added Movies/Tv shows, Anime, And Live Sports</li>
+          <li>Semi Working Proxy</li>
+          <li>Added Music Streaming</li>
+        </ul>
+      </div>
+      <div class="cl-footer">
+        <button class="cl-btn" id="cl-close-btn">Got it</button>
+      </div>
+    </div>
+    <!-- Change Log Panel End -->
+
+</body>
+</html>

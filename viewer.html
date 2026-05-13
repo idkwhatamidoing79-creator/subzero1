@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viewer</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #111; color: #eee; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+    .container { width: min(95vw, 900px); padding: 2rem; background: rgba(10,10,10,0.95); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; box-shadow: 0 0 45px rgba(0,0,0,0.45); }
+    h1 { margin-top: 0; font-size: clamp(1.8rem, 3vw, 3rem); }
+    p { line-height: 1.6; color: #ccc; }
+    .poster { max-width: 100%; border-radius: 12px; display: block; margin: 1rem 0; }
+    .link-button { display: inline-block; margin-top: 1rem; padding: 0.9rem 1.2rem; background: #5a92df; color: white; border-radius: 10px; text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="viewerTitle">Loading...</h1>
+    <img id="viewerPoster" class="poster" src="" alt="" style="display:none;">
+    <p id="viewerLabel" style="font-size:1.1rem; color:#bbb; margin-bottom:0.5rem;"></p>
+    <p id="viewerDescription">This page is a local viewer for your movie or episode. It proves the iframe is working with a real local file.</p>
+    <p id="viewerHint" style="font-size:0.95rem; color:#999; margin-top:1rem;">If the video does not load here, use the button below to open the original source in a new tab.</p>
+    <a id="originalLink" class="link-button" href="#" target="_blank" rel="noopener noreferrer" style="display:none;">Open original source</a>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const title = params.get('title') || 'Untitled';
+    const label = params.get('label');
+    const poster = params.get('poster');
+    const original = params.get('original');
+
+    document.getElementById('viewerTitle').textContent = title;
+    document.getElementById('viewerLabel').textContent = label ? label : 'Local viewer page';
+
+    if (poster) {
+      const posterImg = document.getElementById('viewerPoster');
+      posterImg.src = poster;
+      posterImg.alt = title;
+      posterImg.style.display = 'block';
+    }
+
+    if (label) {
+      document.getElementById('viewerDescription').textContent = label;
+    }
+
+    if (original) {
+      const link = document.getElementById('originalLink');
+      link.href = original;
+      link.style.display = 'inline-block';
+      link.textContent = 'Open original source';
+    } else {
+      document.getElementById('viewerHint').textContent = 'No original source URL is provided for this item.';
+    }
+  </script>
+</body>
+</html>

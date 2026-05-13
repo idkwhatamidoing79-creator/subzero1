@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proxy</title>
+  <style>
+    body {
+      margin: 0;
+      background: #01070f;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+    }
+
+    .proxy-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: rgba(4, 13, 26, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 1rem;
+    }
+
+    .close-proxy-panel {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .proxy-header .proxy-title {
+      flex: 1;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #d7e0ff;
+      overflow-wrap: anywhere;
+    }
+
+    .proxy-header .proxy-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .proxy-address {
+      flex: 1;
+      font-size: 0.88rem;
+      color: #b8ccff;
+      margin: 0 1rem;
+      overflow-wrap: anywhere;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .proxy-actions a {
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #fff;
+      background: #3d8bff;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .proxy {
+      position: absolute;
+      top: 156px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: calc(100vh - 156px);
+      border: none;
+      background: #000;
+    }
+
+    .notice {
+      position: fixed;
+      top: 82px;
+      left: 18px;
+      right: 18px;
+      z-index: 11;
+      color: #e3ecff;
+      background: rgba(8, 18, 38, 0.95);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+    }
+
+    .proxy-debug {
+      position: fixed;
+      top: 132px;
+      left: 18px;
+      right: 18px;
+      z-index: 12;
+      color: #cfd8ff;
+      background: rgba(12, 24, 48, 0.98);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="proxy-header">
+    <a href="index.html" class="close-proxy-panel"><img src="assets/close.png" width="26" alt="Close"></a>
+    <div class="proxy-title" id="proxyMessage">Scramjet Proxy Browser</div>
+    <div class="proxy-address" id="proxyAddress">No target</div>
+    <div class="proxy-actions">
+      <a id="openRawLink" href="#" target="_blank" rel="noopener noreferrer">Open raw target</a>
+    </div>
+  </div>
+  <div class="notice">This page loads the target through a real transport proxy host when configured. If no proxy is available, it falls back to the raw target URL.</div>
+  <div class="proxy-debug" id="proxyDebug">Target debug: none</div>
+  <iframe src="" class="proxy"></iframe>
+  <script src="scramjet.js"></script>
+  <script src="proxy.js"></script>
+</body>
+</html>

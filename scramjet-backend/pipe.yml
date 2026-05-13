@@ -1,0 +1,25 @@
+# Example Scramjet pipeline configuration.
+# Replace this with the exact syntax required by your Scramjet version.
+
+name: scramjet-proxy
+description: Simple proxy pipeline template
+
+input:
+  type: object
+  properties:
+    url:
+      type: string
+      description: "Target URL to fetch"
+
+steps:
+  - name: fetchTarget
+    type: http
+    request:
+      url: "{{input.url}}"
+      method: GET
+      headers:
+        User-Agent: "Mozilla/5.0"
+
+  - name: respond
+    type: http-response
+    body: "{{fetchTarget.body}}"

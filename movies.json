@@ -1,0 +1,173 @@
+﻿[
+    {
+        "id":  "101",
+        "title":  "Dexter: Resurrection",
+        "type":  "series",
+        "image":  "assets/dexter resurrection.webp",
+        "episodes":  [
+                         {
+                             "id":  "10101",
+                             "title":  "Episode 1 — A Beating Heart",
+                             "file":  "player.html?label=Dexter%3A%20Resurrection%20episode\u0026title=Episode%201%20%E2%80%94%20A%20Beating%20Heart\u0026poster=assets%2Fdexter%20resurrection.webp"
+                         },
+                         {
+                             "id":  "10102",
+                             "title":  "Episode 2 — Shadows of the Past",
+                             "file":  "player.html?label=Dexter%3A%20Resurrection%20episode\u0026title=Episode%202%20%E2%80%94%20Shadows%20of%20the%20Past\u0026poster=assets%2Fdexter%20resurrection.webp"
+                         },
+                         {
+                             "id":  "10103",
+                             "title":  "Episode 3 — Backseat Driver",
+                             "file":  "player.html?label=Dexter%3A%20Resurrection%20episode\u0026title=Episode%203%20%E2%80%94%20Backseat%20Driver\u0026poster=assets%2Fdexter%20resurrection.webp"
+                         },
+                         {
+                             "id":  "10104",
+                             "title":  "Episode 4 — The Turning Point",
+                             "file":  "player.html?label=Dexter%3A%20Resurrection%20episode\u0026title=Episode%204%20%E2%80%94%20The%20Turning%20Point\u0026poster=assets%2Fdexter%20resurrection.webp"
+                         },
+                         {
+                             "id":  "10105",
+                             "title":  "Episode 5 — Echoes of Tomorrow",
+                             "file":  "player.html?label=Dexter%3A%20Resurrection%20episode\u0026title=Episode%205%20%E2%80%94%20Echoes%20of%20Tomorrow\u0026poster=assets%2Fdexter%20resurrection.webp"
+                         },
+                         {
+                             "id":  "10106",
+                             "title":  "Episode 6 — Final Hour",
+                             "file":  "player.html?label=Dexter%3A%20Resurrection%20episode\u0026title=Episode%206%20%E2%80%94%20Final%20Hour\u0026poster=assets%2Fdexter%20resurrection.webp"
+                         }
+                     ],
+        "file":  "player.html?label=Series%20overview\u0026title=Dexter%3A%20Resurrection\u0026poster=assets%2Fdexter%20resurrection.webp"
+    },
+    {
+        "id":  "102",
+        "title":  "Dexter: Original Sin",
+        "type":  "series",
+        "image":  "assets/dexterorignial.webp",
+        "episodes":  [
+                         {
+                             "id":  "10201",
+                             "title":  "Episode 1 — First Blood",
+                             "file":  "player.html?label=Dexter%3A%20Original%20Sin%20episode\u0026title=Episode%201%20%E2%80%94%20First%20Blood\u0026poster=assets%2Fdexterorignial.webp"
+                         },
+                         {
+                             "id":  "10202",
+                             "title":  "Episode 2 — Line of Fire",
+                             "file":  "player.html?label=Dexter%3A%20Original%20Sin%20episode\u0026title=Episode%202%20%E2%80%94%20Line%20of%20Fire\u0026poster=assets%2Fdexterorignial.webp"
+                         },
+                         {
+                             "id":  "10203",
+                             "title":  "Episode 3 — Dark Codes",
+                             "file":  "player.html?label=Dexter%3A%20Original%20Sin%20episode\u0026title=Episode%203%20%E2%80%94%20Dark%20Codes\u0026poster=assets%2Fdexterorignial.webp"
+                         }
+                     ],
+        "file":  "player.html?label=Series%20overview\u0026title=Dexter%3A%20Original%20Sin\u0026poster=assets%2Fdexterorignial.webp"
+    },
+    {
+        "id":  "103",
+        "title":  "Scream 7",
+        "type":  "movie",
+        "image":  "assets/scream-7.webp",
+        "file":  "player.html?label=Movie%20viewer\u0026title=Scream%207\u0026poster=assets%2Fscream-7.webp"
+    },
+    {
+        "id":  "104",
+        "title":  "Project: Hail Mary",
+        "type":  "movie",
+        "image":  "assets/PHM.webp",
+        "file":  "player.html?label=Movie%20viewer\u0026title=Project%3A%20Hail%20Mary\u0026poster=assets%2FPHM.webp"
+    },
+    {
+        "id":  "105",
+        "title":  "Micheal Jackson",
+        "type":  "movie",
+        "image":  "assets/MJ.webp",
+        "file":  "player.html?label=Movie%20viewer\u0026title=Micheal%20Jackson\u0026poster=assets%2FMJ.webp"
+    },
+    {
+        "id":  "106",
+        "title":  "Backrooms",
+        "type":  "movie",
+        "image":  "assets/backrooms.webp",
+        "file":  "player.html?label=Movie%20viewer\u0026title=Backrooms\u0026poster=assets%2Fbackrooms.webp"
+    },
+    {
+        "id":  "107",
+        "title":  "Spiderman",
+        "type":  "movie",
+        "image":  "assets/spiderman.webp",
+        "file":  "player.html?label=Movie%20viewer\u0026title=Spiderman\u0026poster=assets%2Fspiderman.webp"
+    },
+    {
+        "id":  "108",
+        "title":  "Avater: Fire \u0026 Ash",
+        "type":  "movie",
+        "image":  "assets/avatermovie.webp",
+        "file":  "player.html?label=Movie%20viewer\u0026title=Avater%3A%20Fire%20%26%20Ash\u0026poster=assets%2Favatermovie.webp"
+    },
+    {
+        "id":  "109",
+        "title":  "Dexter",
+        "type":  "series",
+        "image":  "assets/dexter.webp",
+        "episodes":  [
+                         {
+                             "id":  "10901",
+                             "title":  "Episode 1 — Pilot",
+                             "file":  "player.html?label=Dexter%20episode\u0026title=Episode%201%20%E2%80%94%20Pilot\u0026poster=assets%2Fdexter.webp"
+                         },
+                         {
+                             "id":  "10902",
+                             "title":  "Episode 2 — Crocodile",
+                             "file":  "player.html?label=Dexter%20episode\u0026title=Episode%202%20%E2%80%94%20Crocodile\u0026poster=assets%2Fdexter.webp"
+                         },
+                         {
+                             "id":  "10903",
+                             "title":  "Episode 3 — Return",
+                             "file":  "player.html?label=Dexter%20episode\u0026title=Episode%203%20%E2%80%94%20Return\u0026poster=assets%2Fdexter.webp"
+                         }
+                     ],
+        "file":  "player.html?label=Series%20overview\u0026title=Dexter\u0026poster=assets%2Fdexter.webp"
+    },
+    {
+        "id":  "110",
+        "title":  "Crime 101",
+        "type":  "movie",
+        "image":  "assets/crime 101.webp",
+        "file":  "player.html?label=Movie%20viewer\u0026title=Crime%20101\u0026poster=assets%2Fcrime%20101.webp"
+    },
+    {
+        "id":  "111",
+        "title":  "Transformers",
+        "type":  "movie",
+        "image":  "assets/transformers.webp",
+        "file":  "player.html?label=Movie%20viewer\u0026title=Transformers\u0026poster=assets%2Ftransformers.webp"
+    },
+    {
+        "id":  "112",
+        "title":  "Avengers: End Game",
+        "type":  "movie",
+        "image":  "assets/avengers.webp",
+        "file":  "player.html?label=Movie%20viewer\u0026title=Avengers%3A%20End%20Game\u0026poster=assets%2Favengers.webp"
+    },
+    {
+        "id":  "113",
+        "title":  "Five Nights At Freddy 2",
+        "type":  "movie",
+        "image":  "assets/fnaf2.webp",
+        "file":  "player.html?label=Movie%20viewer\u0026title=Five%20Nights%20At%20Freddy%202\u0026poster=assets%2Ffnaf2.webp"
+    },
+    {
+        "id":  "114",
+        "title":  "Hoppers",
+        "type":  "movie",
+        "image":  "assets/Hoppers.webp",
+        "file":  "player.html?label=Movie%20viewer\u0026title=Hoppers\u0026poster=assets%2FHoppers.webp"
+    },
+    {
+        "id":  "115",
+        "title":  "Swapped",
+        "type":  "movie",
+        "image":  "assets/Swapped.webp",
+        "file":  "player.html?label=Movie%20viewer\u0026title=Swapped\u0026poster=assets%2FSwapped.webp"
+    }
+]

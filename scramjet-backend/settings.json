@@ -1,0 +1,4 @@
+{
+  "proxyEndpoint": "https://your-scramjet-proxy-endpoint.example.com/?",
+  "notes": "Replace this with the actual deployed Scramjet endpoint after deployment."
+}

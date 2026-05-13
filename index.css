@@ -1,0 +1,267 @@
+  body {
+            margin: 0;
+            padding: 0;
+            background: url("assets/wallpaper1.jpg") no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, Helvetica, sans-serif;
+            height: 100vh;
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background 0.5s ease;
+        }
+
+        /* --- Taskbar Container --- */
+        .taskbar {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 2rem;
+            width: auto; 
+            min-width: 400px;
+            max-width: 90%; 
+            height: auto;
+            min-height: 3rem;
+            padding: 0.5rem 1.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .taskbar:hover {
+            backdrop-filter: blur(15px);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        /* App Card Styling */
+        .app-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            flex: 0 0 auto;
+            text-decoration: none;
+            user-select: none;
+        }
+
+        .app-thumbnail {
+            width: 3rem; 
+            height: 3rem;
+            object-fit: contain;
+            border-radius: 12px;
+            transition: transform 0.2s ease;
+        }
+
+        .app-card:hover .app-thumbnail {
+            transform: scale(1.15) translateY(-5px);
+        }
+
+        /* Tooltip */
+        .apptitle {
+            position: absolute;
+            top: calc(-100% - 10px);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s ease;
+            pointer-events: none;
+            z-index: 1001;
+        }
+
+        .app-card:hover .apptitle {
+            opacity: 1;
+            visibility: visible;
+            top: calc(-100% - 15px);
+        }
+
+        #searchBar {
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 1rem 2.5rem;
+            width: 30rem;
+            max-width: 80vw;
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 50%;
+            transition: 0.3s;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        #searchBar::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        #searchBar:hover {
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        h2 {
+            color: rgb(226, 238, 255);
+            font-family: "Black And White Picture", system-ui;
+            font-weight: lighter;
+            font-size: 7rem;
+            text-shadow: 0 0 15px black;
+            overflow: hidden;
+            position: fixed;
+            text-align: center;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 5%;
+            pointer-events: none;
+        }
+
+        /* Settings Panel Styling */
+        .setting-panel {
+            position: fixed;
+            top: 50%;
+            left: 87%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            height: 600px;
+            background-color: rgba(20, 20, 20, 0.9);
+            backdrop-filter: blur(10);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            z-index: 2000;
+            display: none;
+            padding: 25px;
+            box-sizing: border-box;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow-y: auto;
+        }
+
+        h3 {
+            margin-top: 0;
+            color: white;
+            font-size: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+        }
+
+        .setting-section {
+            margin-bottom: 20px;
+        }
+
+        .setting-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Toggle Switch Styling */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #1f1f1f;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: rgb(236, 236, 236);
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #3a3a3a;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #ffffff;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        /* Dropdown Styling */
+        select {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 8px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        select option {
+            background: #333;
+            color: white;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: rgba(255,255,255,0.2);
+            margin: 15px 0;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #aaa;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .close-btn:hover {
+            color: white;
+        }
