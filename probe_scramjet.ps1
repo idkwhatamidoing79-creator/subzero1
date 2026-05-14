@@ -1,5 +1,5 @@
 try {
-    $url = 'https://corsproxy.io/?url=https://brave.com'
+    $url = 'https://corsproxy.io/?url=https://search.brave.com'
     $r = Invoke-WebRequest -Uri $url -UseBasicParsing -MaximumRedirection 5
     Write-Host "Status: $($r.StatusCode)"
     Write-Host "Final URL: $($r.BaseResponse.ResponseUri.AbsoluteUri)"
