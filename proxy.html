@@ -5,115 +5,154 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proxy</title>
   <style>
-    body {
+      body {
       margin: 0;
-      background: #01070f;
+      background: #1a1a1a;
       color: #ffffff;
-      font-family: Arial, sans-serif;
-      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
 
     .proxy-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 10;
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      background: #2d2d2d;
+      border-bottom: 1px solid #404040;
+    }
+
+    .tab-bar {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 14px 18px;
-      background: rgba(4, 13, 26, 0.92);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      gap: 1rem;
+      padding: 8px 12px;
+      background: #252525;
+      gap: 8px;
     }
 
     .close-proxy-panel {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
-      background: rgba(255,255,255,0.08);
-      border-radius: 14px;
+      width: 32px;
+      height: 32px;
+      background: #3d3d3d;
+      border-radius: 6px;
       border: none;
       cursor: pointer;
+      transition: background 0.2s;
     }
 
-    .proxy-header .proxy-title {
+    .close-proxy-panel:hover {
+      background: #4d4d4d;
+    }
+
+    .proxy-title {
       flex: 1;
-      font-size: 1rem;
-      line-height: 1.4;
-      color: #d7e0ff;
-      overflow-wrap: anywhere;
+      font-size: 0.9rem;
+      color: #d0d0d0;
+      padding: 4px 12px;
+      background: #383838;
+      border-radius: 6px 6px 0 0;
+      margin-top: -4px;
     }
 
-    .proxy-header .proxy-actions {
+    .address-bar {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
+      padding: 8px 12px;
+      gap: 10px;
+      background: #2d2d2d;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 4px;
+    }
+
+    .nav-btn {
+      width: 32px;
+      height: 32px;
+      background: transparent;
+      border: none;
+      color: #aaa;
+      cursor: pointer;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-btn:hover {
+      background: #3d3d3d;
+      color: #fff;
     }
 
     .proxy-address {
       flex: 1;
-      font-size: 0.88rem;
-      color: #b8ccff;
-      margin: 0 1rem;
-      overflow-wrap: anywhere;
-      white-space: nowrap;
+      font-size: 0.85rem;
+      color: #c0c0c0;
+      background: #1e1e1e;
+      border: 1px solid #404040;
+      border-radius: 4px;
+      padding: 6px 12px;
       overflow: hidden;
       text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .proxy-actions {
+      display: flex;
+      gap: 8px;
     }
 
     .proxy-actions a {
-      padding: 0.8rem 1rem;
-      border-radius: 12px;
+      padding: 6px 12px;
+      border-radius: 4px;
       text-decoration: none;
       color: #fff;
       background: #3d8bff;
-      font-weight: 700;
-      font-size: 0.9rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: background 0.2s;
+    }
+
+    .proxy-actions a:hover {
+      background: #2a75e8;
     }
 
     .proxy {
-      position: absolute;
-      top: 156px;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      flex: 1;
       width: 100%;
-      height: calc(100vh - 156px);
       border: none;
       background: #000;
+      display: block;
+    }
+
+    .status-bar {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      background: #252525;
+      border-top: 1px solid #404040;
+      font-size: 0.8rem;
     }
 
     .notice {
-      position: fixed;
-      top: 82px;
-      left: 18px;
-      right: 18px;
-      z-index: 11;
-      color: #e3ecff;
-      background: rgba(8, 18, 38, 0.95);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      padding: 12px 16px;
-      font-size: 0.95rem;
+      padding: 8px 12px;
+      color: #b0b0b0;
+      background: #2a2a2a;
+      border-bottom: 1px solid #353535;
     }
 
     .proxy-debug {
-      position: fixed;
-      top: 132px;
-      left: 18px;
-      right: 18px;
-      z-index: 12;
-      color: #cfd8ff;
-      background: rgba(12, 24, 48, 0.98);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      padding: 12px 16px;
-      font-size: 0.95rem;
+      padding: 6px 12px;
+      color: #9090ff;
+      background: #1a1a2e;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.75rem;
       overflow-wrap: anywhere;
       white-space: pre-wrap;
     }
